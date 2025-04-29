@@ -13,9 +13,13 @@ export class UsersService {
     this.country_api = this.configService.get<string>('FETCH_COUNTRY_API')!
     this.accessKey = this.configService.get<string>('ACCESS_KEY')!
   }
-  register(createUserDto: CreateUserDto) {
+  async getCountryFromIP(ip){
+    let url = `${this.country_api} + ${ip} + '&accessKey='+ ${this.accessKey}`
+
+  }
+
+  async register(createUserDto: CreateUserDto,ip) {
     try {
-      let url = `${this.country_api} + ip + '&accessKey='+ ${this.accessKey}`
     } catch (error) {
       throw error
     }
